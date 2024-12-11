@@ -1,0 +1,10 @@
+services:
+  solidity-analyzer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64  
+    volumes:
+      - .:/app  # Mount the current directory into /app inside the container
+    working_dir: /app  # Set the working directory inside the container
+    command: ["bash"]  # Start the container in interactive mode
