@@ -1,7 +1,7 @@
 [
     {
         "analysis_type": "detect_struct_packing",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "structure_name": "Person",
         "current_field_order": [
             {
@@ -50,7 +50,7 @@
     },
     {
         "analysis_type": "detect_struct_packing",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "structure_name": "Car",
         "current_field_order": [
             {
@@ -139,13 +139,13 @@
     },
     {
         "analysis_type": "detect_state_variable_packing",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "current_state_variable_order": [],
         "recommended_state_variable_order": []
     },
     {
         "analysis_type": "detect_state_variable_packing",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "current_state_variable_order": [
             {
                 "variable_name": "largeArray",
@@ -303,7 +303,7 @@
     },
     {
         "analysis_type": "detect_state_variable_packing",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "current_state_variable_order": [
             {
                 "variable_name": "networkVersionUsed",
@@ -312,14 +312,14 @@
             },
             {
                 "variable_name": "person",
-                "variable_type": "InefficientStructPacking.Person",
+                "variable_type": "InefficientContract2.Person",
                 "variable_size_bytes": 96
             }
         ],
         "recommended_state_variable_order": [
             {
                 "variable_name": "person",
-                "variable_type": "InefficientStructPacking.Person",
+                "variable_type": "InefficientContract2.Person",
                 "variable_size_bytes": 96
             },
             {
@@ -331,12 +331,12 @@
     },
     {
         "analysis_type": "detect_boolean_packing",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "message": "No boolean variables - no packing required"
     },
     {
         "analysis_type": "detect_boolean_packing",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "boolean_variables": [
             "isActive",
             "isConfirmed",
@@ -346,17 +346,17 @@
     },
     {
         "analysis_type": "detect_boolean_packing",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "message": "No boolean variables - no packing required"
     },
     {
         "analysis_type": "detect_uintstar",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "message": "No uint* variables - no packing required"
     },
     {
         "analysis_type": "detect_uintstar",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "uint*_variables": [
             {
                 "var_name": "anSmallVariable",
@@ -387,17 +387,17 @@
     },
     {
         "analysis_type": "detect_uintstar",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "message": "No uint* variables - no packing required"
     },
     {
         "analysis_type": "detect_string_to_bytes32",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "message": "No string variables - no conversion required"
     },
     {
         "analysis_type": "detect_string_to_bytes32",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "string_variables": [
             {
                 "var_name": "contract_address",
@@ -412,7 +412,7 @@
     },
     {
         "analysis_type": "detect_string_to_bytes32",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "string_variables": [
             {
                 "var_name": "networkVersionUsed",
@@ -423,12 +423,12 @@
     },
     {
         "analysis_type": "detect_dynamic_size_arrays",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "message": "No dynamic arrays - no optimization required"
     },
     {
         "analysis_type": "detect_dynamic_size_arrays",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "dynamic_arrays": [
             {
                 "arr_name": "largeArray",
@@ -443,17 +443,17 @@
     },
     {
         "analysis_type": "detect_dynamic_size_arrays",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "message": "No dynamic arrays - no optimization required"
     },
     {
         "analysis_type": "detect_zero_init",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "message": "No auto initialized vars - no optimization required"
     },
     {
         "analysis_type": "detect_zero_init",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "auto_initialized_vars": [
             {
                 "var_name": "largeArray",
@@ -488,35 +488,35 @@
     },
     {
         "analysis_type": "detect_zero_init",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "auto_initialized_vars": [
             {
                 "var_name": "person",
-                "var_type": "InefficientStructPacking.Person"
+                "var_type": "InefficientContract2.Person"
             }
         ],
         "message": "These variables will be auto initialized to their zero value - consider intializing them to the zero value explicitly."
     },
     {
         "analysis_type": "detect_memory_struct_arguments",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "memory_struct_arguments": [
             {
                 "function_name": "doSomethingMemory",
                 "parameter_name": "person2",
-                "parameter_type": "InefficientStructPacking.Person"
+                "parameter_type": "InefficientContract2.Person"
             }
         ],
         "message": "Struct arguments should use 'calldata' instead of 'memory' for better gas optimization."
     },
     {
         "analysis_type": "detect_freeable_storage",
-        "contract_name": "Test",
+        "contract_name": "EmptyContract",
         "message": "No storage vars - no optimization required"
     },
     {
         "analysis_type": "detect_freeable_storage",
-        "contract_name": "UnoptimizedContract",
+        "contract_name": "InefficientContract1",
         "storage_variables": [
             {
                 "var_name": "largeArray",
@@ -598,7 +598,7 @@
     },
     {
         "analysis_type": "detect_freeable_storage",
-        "contract_name": "InefficientStructPacking",
+        "contract_name": "InefficientContract2",
         "storage_variables": [
             {
                 "var_name": "networkVersionUsed",
@@ -607,10 +607,107 @@
             },
             {
                 "var_name": "person",
-                "var_type": "InefficientStructPacking.Person",
+                "var_type": "InefficientContract2.Person",
                 "freeable_storage_bytes": 96
             }
         ],
         "message": "Variables in storage can be freed with 'delete' command when not used anymore."
+    },
+    {
+        "analysis_type": "detect_external_public_functions",
+        "contract_name": "EmptyContract",
+        "message": "No public or external functions - no optimization required"
+    },
+    {
+        "analysis_type": "detect_external_public_functions",
+        "contract_name": "InefficientContract1",
+        "public_external_functions": [
+            {
+                "function_name": "inefficientLoop",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "redundantComputation",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "inefficientStorageAccess",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "badVisibilityFunction",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "badBooleanPacking",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "expensiveArrayResizing",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 1
+            },
+            {
+                "function_name": "externalCallsExample",
+                "visibility": "public",
+                "internal_calls": 2,
+                "external_calls": 0
+            },
+            {
+                "function_name": "getBalance",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "getTotalBalance",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            }
+        ],
+        "message": "To optimize gas consumption, consider making functions internal whenever possible. If a function must be publicly accessible, mark it as external to utilize calldata for parameter passing, which is generally more gas-efficient than memory."
+    },
+    {
+        "analysis_type": "detect_external_public_functions",
+        "contract_name": "InefficientContract2",
+        "public_external_functions": [
+            {
+                "function_name": "setPerson",
+                "visibility": "external",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "getPerson",
+                "visibility": "external",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "doSomethingMemory",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            },
+            {
+                "function_name": "doSomethingCalldata",
+                "visibility": "public",
+                "internal_calls": 0,
+                "external_calls": 0
+            }
+        ],
+        "message": "To optimize gas consumption, consider making functions internal whenever possible. If a function must be publicly accessible, mark it as external to utilize calldata for parameter passing, which is generally more gas-efficient than memory."
     }
 ]
