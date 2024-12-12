@@ -157,7 +157,37 @@
                 "variable_size_bytes": 32
             },
             {
+                "variable_name": "anSmallVariable",
+                "variable_type": "uint8",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "anotherSmallVariable",
+                "variable_type": "uint8",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "justAnotheruint16",
+                "variable_type": "uint16",
+                "variable_size_bytes": 2
+            },
+            {
+                "variable_name": "justAnotheruint32",
+                "variable_type": "uint32",
+                "variable_size_bytes": 4
+            },
+            {
                 "variable_name": "isActive",
+                "variable_type": "bool",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "isConfirmed",
+                "variable_type": "bool",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "isTransfered",
                 "variable_type": "bool",
                 "variable_size_bytes": 1
             },
@@ -189,7 +219,37 @@
                 "variable_size_bytes": 32
             },
             {
+                "variable_name": "justAnotheruint32",
+                "variable_type": "uint32",
+                "variable_size_bytes": 4
+            },
+            {
+                "variable_name": "justAnotheruint16",
+                "variable_type": "uint16",
+                "variable_size_bytes": 2
+            },
+            {
+                "variable_name": "anSmallVariable",
+                "variable_type": "uint8",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "anotherSmallVariable",
+                "variable_type": "uint8",
+                "variable_size_bytes": 1
+            },
+            {
                 "variable_name": "isActive",
+                "variable_type": "bool",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "isConfirmed",
+                "variable_type": "bool",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "isTransfered",
                 "variable_type": "bool",
                 "variable_size_bytes": 1
             }
@@ -199,5 +259,48 @@
         "analysis_type": "detect_state_variable_packing",
         "contract_name": "InefficientStructPacking",
         "message": "Only one variable - no reorder required"
+    },
+    {
+        "analysis_type": "detect_boolean_packing",
+        "contract_name": "UnoptimizedContract",
+        "boolean_variables": [
+            "isActive",
+            "isConfirmed",
+            "isTransfered"
+        ],
+        "message": "One uint256 can be used to merge all boolean variables, use this pattern ./templates/booleanPacking.sol"
+    },
+    {
+        "analysis_type": "detect_boolean_packing",
+        "contract_name": "InefficientStructPacking",
+        "message": "No boolean variable - no packing required"
+    },
+    {
+        "analysis_type": "detect_uintstar",
+        "contract_name": "UnoptimizedContract",
+        "uint*_variables": [
+            {
+                "var_name": "anSmallVariable",
+                "var_type": "uint8"
+            },
+            {
+                "var_name": "anotherSmallVariable",
+                "var_type": "uint8"
+            },
+            {
+                "var_name": "justAnotheruint16",
+                "var_type": "uint16"
+            },
+            {
+                "var_name": "justAnotheruint32",
+                "var_type": "uint32"
+            }
+        ],
+        "message": "Instead of all these datatypes, you better use uint256 to help avoid the need for conversion and save gas."
+    },
+    {
+        "analysis_type": "detect_uintstar",
+        "contract_name": "InefficientStructPacking",
+        "message": "No uint* variable - no packing required"
     }
 ]

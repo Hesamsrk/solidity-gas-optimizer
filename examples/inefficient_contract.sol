@@ -5,7 +5,13 @@ contract UnoptimizedContract {
     uint256[] public largeArray;
     mapping(address => uint256) public balances;
     uint256 public totalBalance;
+    uint8 public anSmallVariable;
+    uint8 public anotherSmallVariable;
+    uint16 public justAnotheruint16;
+    uint32 public justAnotheruint32;
     bool public isActive = true;
+    bool public isConfirmed = false;
+    bool public isTransfered = false;
     uint256 public threshold = 1000;
 
     constructor() {

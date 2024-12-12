@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 from slither.slither import Slither
-from patterns.detectStructPacking import detect_struct_packing
-from patterns.detectStateVariablePacking import detect_state_variable_packing
+from patternDetectors.detectStructPacking import detect_struct_packing
+from patternDetectors.detectStateVariablePacking import detect_state_variable_packing
+from patternDetectors.detectBooleanPacking import detect_boolean_packing
+from patternDetectors.detectUintStar import detect_uintstar
 
 def analyze_contract(file_path):
     """
@@ -12,8 +14,12 @@ def analyze_contract(file_path):
     analysis_results = []
     print("Running gas optimization checks...")
 
+
+    # Detecting the mentioned design patterns, refer to the project report:
     analysis_results.extend(detect_struct_packing(slither))
     analysis_results.extend(detect_state_variable_packing(slither))
+    analysis_results.extend(detect_boolean_packing(slither))
+    analysis_results.extend(detect_uintstar(slither))
 
 
     return analysis_results

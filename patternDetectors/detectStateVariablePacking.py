@@ -15,13 +15,11 @@ def detect_state_variable_packing(slither: Slither):
             results.append(result)
             break
         for variable in contract.variables:
-           print(variable.name,variable.type,variable.type.storage_size)
            current_state_variable_order.append({"variable_name":variable.name,"variable_type":str(variable.type),"variable_size_bytes":variable.type.storage_size[0]})
         result["current_state_variable_order"] = current_state_variable_order
         result["recommended_state_variable_order"] = sorted(current_state_variable_order, key=lambda x: x['variable_size_bytes'], reverse=True)
         results.append(result)
                 
-    print(results)
     return results
 
 
