@@ -13,6 +13,8 @@ contract UnoptimizedContract {
     bool public isConfirmed = false;
     bool public isTransfered = false;
     uint256 public threshold = 1000;
+    string public contract_address = "0x7f367cC414f96b1D6C06e0e22dba7d17f8b4a2dB";
+    string public owner_name = "owner_name_random";
 
     constructor() {
         // Inefficient Initialization:
@@ -101,6 +103,9 @@ contract UnoptimizedContract {
 
 
 contract InefficientStructPacking {
+
+    string public networkVersionUsed = "1.23.140000v54Beta";
+
     struct Person {
         uint256 id;       // 32 bytes
         bool isActive;    // 1 byte

@@ -195,6 +195,16 @@
                 "variable_name": "threshold",
                 "variable_type": "uint256",
                 "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "contract_address",
+                "variable_type": "string",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "owner_name",
+                "variable_type": "string",
+                "variable_size_bytes": 32
             }
         ],
         "recommended_state_variable_order": [
@@ -216,6 +226,16 @@
             {
                 "variable_name": "threshold",
                 "variable_type": "uint256",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "contract_address",
+                "variable_type": "string",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "owner_name",
+                "variable_type": "string",
                 "variable_size_bytes": 32
             },
             {
@@ -258,7 +278,30 @@
     {
         "analysis_type": "detect_state_variable_packing",
         "contract_name": "InefficientStructPacking",
-        "message": "Only one variable - no reorder required"
+        "current_state_variable_order": [
+            {
+                "variable_name": "networkVersionUsed",
+                "variable_type": "string",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "person",
+                "variable_type": "InefficientStructPacking.Person",
+                "variable_size_bytes": 96
+            }
+        ],
+        "recommended_state_variable_order": [
+            {
+                "variable_name": "person",
+                "variable_type": "InefficientStructPacking.Person",
+                "variable_size_bytes": 96
+            },
+            {
+                "variable_name": "networkVersionUsed",
+                "variable_type": "string",
+                "variable_size_bytes": 32
+            }
+        ]
     },
     {
         "analysis_type": "detect_boolean_packing",
@@ -296,11 +339,37 @@
                 "var_type": "uint32"
             }
         ],
-        "message": "Instead of all these datatypes, you better use uint256 to help avoid the need for conversion and save gas."
+        "message": "Instead of all these uint* datatypes, you better use uint256 to help avoid the need for conversion and save gas."
     },
     {
         "analysis_type": "detect_uintstar",
         "contract_name": "InefficientStructPacking",
         "message": "No uint* variable - no packing required"
+    },
+    {
+        "analysis_type": "detect_string_to_bytes32",
+        "contract_name": "UnoptimizedContract",
+        "string_variables": [
+            {
+                "var_name": "contract_address",
+                "var_intialized": true
+            },
+            {
+                "var_name": "owner_name",
+                "var_intialized": true
+            }
+        ],
+        "message": "Instead of string variables that are initialized with a fixed value, in most cases you can fit it in a bytes32 instead."
+    },
+    {
+        "analysis_type": "detect_string_to_bytes32",
+        "contract_name": "InefficientStructPacking",
+        "string_variables": [
+            {
+                "var_name": "networkVersionUsed",
+                "var_intialized": true
+            }
+        ],
+        "message": "Instead of string variables that are initialized with a fixed value, in most cases you can fit it in a bytes32 instead."
     }
 ]
