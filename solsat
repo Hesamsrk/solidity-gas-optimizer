@@ -1,27 +1,20 @@
-
+#!/usr/bin/env python3
 from slither.slither import Slither
-
-def parse_solidity_file(file_path):
-    """
-    Parses a Solidity file using Slither and returns the parsed object.
-    """
-    slither = Slither(file_path)
-    return slither
-
-
-
+from patterns.detectStructPacking import detect_struct_packing
+from patterns.detectStateVariablePacking import detect_state_variable_packing
 
 def analyze_contract(file_path):
     """
     Runs all gas inefficiency checks on a Solidity file.
     """
-    slither = parse_solidity_file(file_path)
+    slither = Slither(file_path)
 
-    analysis_results = {}
-
+    analysis_results = []
     print("Running gas optimization checks...")
 
-    # analysis_results["detect_something"] = detect_something(slither)
+    analysis_results.extend(detect_struct_packing(slither))
+    analysis_results.extend(detect_state_variable_packing(slither))
+
 
     return analysis_results
 

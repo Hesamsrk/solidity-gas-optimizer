@@ -92,3 +92,37 @@ contract UnoptimizedContract {
         return totalBalance;
     }
 }
+
+
+contract InefficientStructPacking {
+    struct Person {
+        uint256 id;       // 32 bytes
+        bool isActive;    // 1 byte
+        uint8 age;        // 1 byte
+        uint256 balance;  // 32 bytes
+    }
+
+    struct Car {
+        uint256 id;       // 32 bytes
+        uint8 numberOfWheels;       // 1 bytes
+        bool isActive;    // 1 byte
+        uint8 age;        // 1 byte
+        uint8 numberOfPassangers;       // 1 bytes
+        uint256 balance;  // 32 bytes
+        bool isSuperCar;    // 1 byte
+        uint128 gasCunsumption;       // 16 bytes
+    }
+
+    Person public person;
+
+    function setPerson(uint256 _id, bool _isActive, uint8 _age, uint256 _balance) external {
+        person.id = _id;
+        person.isActive = _isActive;
+        person.age = _age;
+        person.balance = _balance;
+    }
+
+    function getPerson() external view returns (uint256, bool, uint8, uint256) {
+        return (person.id, person.isActive, person.age, person.balance);
+    }
+}

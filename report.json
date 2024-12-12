@@ -1,1 +1,203 @@
-{}
+[
+    {
+        "analysis_type": "detect_struct_packing",
+        "contract_name": "InefficientStructPacking",
+        "structure_name": "Person",
+        "current_field_order": [
+            {
+                "field_name": "id",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "isActive",
+                "field_type": "bool",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "age",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "balance",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            }
+        ],
+        "recommended_field_order": [
+            {
+                "field_name": "id",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "balance",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "isActive",
+                "field_type": "bool",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "age",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            }
+        ]
+    },
+    {
+        "analysis_type": "detect_struct_packing",
+        "contract_name": "InefficientStructPacking",
+        "structure_name": "Car",
+        "current_field_order": [
+            {
+                "field_name": "id",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "numberOfWheels",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "isActive",
+                "field_type": "bool",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "age",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "numberOfPassangers",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "balance",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "isSuperCar",
+                "field_type": "bool",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "gasCunsumption",
+                "field_type": "uint128",
+                "field_size_bytes": 16
+            }
+        ],
+        "recommended_field_order": [
+            {
+                "field_name": "id",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "balance",
+                "field_type": "uint256",
+                "field_size_bytes": 32
+            },
+            {
+                "field_name": "gasCunsumption",
+                "field_type": "uint128",
+                "field_size_bytes": 16
+            },
+            {
+                "field_name": "numberOfWheels",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "isActive",
+                "field_type": "bool",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "age",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "numberOfPassangers",
+                "field_type": "uint8",
+                "field_size_bytes": 1
+            },
+            {
+                "field_name": "isSuperCar",
+                "field_type": "bool",
+                "field_size_bytes": 1
+            }
+        ]
+    },
+    {
+        "analysis_type": "detect_state_variable_packing",
+        "contract_name": "UnoptimizedContract",
+        "current_state_variable_order": [
+            {
+                "variable_name": "largeArray",
+                "variable_type": "uint256[]",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "balances",
+                "variable_type": "mapping(address => uint256)",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "totalBalance",
+                "variable_type": "uint256",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "isActive",
+                "variable_type": "bool",
+                "variable_size_bytes": 1
+            },
+            {
+                "variable_name": "threshold",
+                "variable_type": "uint256",
+                "variable_size_bytes": 32
+            }
+        ],
+        "recommended_state_variable_order": [
+            {
+                "variable_name": "largeArray",
+                "variable_type": "uint256[]",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "balances",
+                "variable_type": "mapping(address => uint256)",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "totalBalance",
+                "variable_type": "uint256",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "threshold",
+                "variable_type": "uint256",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "isActive",
+                "variable_type": "bool",
+                "variable_size_bytes": 1
+            }
+        ]
+    },
+    {
+        "analysis_type": "detect_state_variable_packing",
+        "contract_name": "InefficientStructPacking",
+        "message": "Only one variable - no reorder required"
+    }
+]
