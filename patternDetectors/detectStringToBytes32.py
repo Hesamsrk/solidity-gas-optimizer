@@ -12,7 +12,7 @@ def detect_string_to_bytes32(slither: Slither):
         
         stringVariables = [var for var in contract.variables if str(var.type) == "string"]
         if len(stringVariables) == 0:
-            result["message"] = "No string variable - no conversion required"
+            result["message"] = "No string variables - no conversion required"
             results.append(result)
             break
         result["string_variables"] = [{"var_name":var.name,"var_intialized":var.initialized} for var in stringVariables]

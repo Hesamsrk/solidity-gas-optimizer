@@ -5,6 +5,7 @@ from patternDetectors.detectStateVariablePacking import detect_state_variable_pa
 from patternDetectors.detectBooleanPacking import detect_boolean_packing
 from patternDetectors.detectUintStar import detect_uintstar
 from patternDetectors.detectStringToBytes32 import detect_string_to_bytes32
+from patternDetectors.detectDynamicSizeArrays import detect_dynamic_size_arrays
 
 def analyze_contract(file_path):
     """
@@ -22,6 +23,7 @@ def analyze_contract(file_path):
     analysis_results.extend(detect_boolean_packing(slither))
     analysis_results.extend(detect_uintstar(slither))
     analysis_results.extend(detect_string_to_bytes32(slither))
+    analysis_results.extend(detect_dynamic_size_arrays(slither))
 
 
     return analysis_results

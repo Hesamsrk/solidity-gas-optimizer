@@ -205,6 +205,16 @@
                 "variable_name": "owner_name",
                 "variable_type": "string",
                 "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "fixedArray",
+                "variable_type": "uint8[10]",
+                "variable_size_bytes": 10
+            },
+            {
+                "variable_name": "dynamicArray",
+                "variable_type": "uint8[]",
+                "variable_size_bytes": 32
             }
         ],
         "recommended_state_variable_order": [
@@ -237,6 +247,16 @@
                 "variable_name": "owner_name",
                 "variable_type": "string",
                 "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "dynamicArray",
+                "variable_type": "uint8[]",
+                "variable_size_bytes": 32
+            },
+            {
+                "variable_name": "fixedArray",
+                "variable_type": "uint8[10]",
+                "variable_size_bytes": 10
             },
             {
                 "variable_name": "justAnotheruint32",
@@ -316,7 +336,7 @@
     {
         "analysis_type": "detect_boolean_packing",
         "contract_name": "InefficientStructPacking",
-        "message": "No boolean variable - no packing required"
+        "message": "No boolean variables - no packing required"
     },
     {
         "analysis_type": "detect_uintstar",
@@ -337,6 +357,14 @@
             {
                 "var_name": "justAnotheruint32",
                 "var_type": "uint32"
+            },
+            {
+                "var_name": "fixedArray",
+                "var_type": "uint8[10]"
+            },
+            {
+                "var_name": "dynamicArray",
+                "var_type": "uint8[]"
             }
         ],
         "message": "Instead of all these uint* datatypes, you better use uint256 to help avoid the need for conversion and save gas."
@@ -344,7 +372,7 @@
     {
         "analysis_type": "detect_uintstar",
         "contract_name": "InefficientStructPacking",
-        "message": "No uint* variable - no packing required"
+        "message": "No uint* variables - no packing required"
     },
     {
         "analysis_type": "detect_string_to_bytes32",
@@ -371,5 +399,25 @@
             }
         ],
         "message": "Instead of string variables that are initialized with a fixed value, in most cases you can fit it in a bytes32 instead."
+    },
+    {
+        "analysis_type": "detect_dynamic_size_arrays",
+        "contract_name": "UnoptimizedContract",
+        "dynamic_arrays": [
+            {
+                "arr_name": "largeArray",
+                "arr_type": "uint256[]"
+            },
+            {
+                "arr_name": "dynamicArray",
+                "arr_type": "uint8[]"
+            }
+        ],
+        "message": "See if you can state the array variable lenghts as static instead of dynamic - example: uint256[] => uint256[10]"
+    },
+    {
+        "analysis_type": "detect_dynamic_size_arrays",
+        "contract_name": "InefficientStructPacking",
+        "message": "No dynamic arrays - no optimization required"
     }
 ]

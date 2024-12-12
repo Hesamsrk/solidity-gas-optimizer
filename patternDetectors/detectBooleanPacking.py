@@ -12,7 +12,7 @@ def detect_boolean_packing(slither: Slither):
         
         boolVariables = [var for var in contract.variables if str(var.type) == "bool"]
         if len(boolVariables) == 0:
-            result["message"] = "No boolean variable - no packing required"
+            result["message"] = "No boolean variables - no packing required"
             results.append(result)
             break
         if len(boolVariables) == 1:

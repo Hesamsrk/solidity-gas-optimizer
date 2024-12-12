@@ -12,7 +12,7 @@ def detect_uintstar(slither: Slither):
         
         uintVariables = [var for var in contract.variables if str(var.type).startswith("uint") and not str(var.type).startswith("uint256")]
         if len(uintVariables) == 0:
-            result["message"] = "No uint* variable - no packing required"
+            result["message"] = "No uint* variables - no packing required"
             results.append(result)
             break
         result["uint*_variables"] = [{"var_name":var.name,"var_type":str(var.type)} for var in uintVariables]
