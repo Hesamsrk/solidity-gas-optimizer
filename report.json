@@ -413,11 +413,57 @@
                 "arr_type": "uint8[]"
             }
         ],
-        "message": "See if you can state the array variable lenghts as static instead of dynamic - example: uint256[] => uint256[10]"
+        "message": "Consider using statically sized arrays instead of dynamic arrays for the array variables, if possible - example: uint256[] => uint256[10]"
     },
     {
         "analysis_type": "detect_dynamic_size_arrays",
         "contract_name": "InefficientStructPacking",
         "message": "No dynamic arrays - no optimization required"
+    },
+    {
+        "analysis_type": "detect_zero_init",
+        "contract_name": "UnoptimizedContract",
+        "auto_initialized_vars": [
+            {
+                "var_name": "largeArray",
+                "var_type": "uint256[]"
+            },
+            {
+                "var_name": "balances",
+                "var_type": "mapping(address => uint256)"
+            },
+            {
+                "var_name": "totalBalance",
+                "var_type": "uint256"
+            },
+            {
+                "var_name": "anSmallVariable",
+                "var_type": "uint8"
+            },
+            {
+                "var_name": "anotherSmallVariable",
+                "var_type": "uint8"
+            },
+            {
+                "var_name": "justAnotheruint16",
+                "var_type": "uint16"
+            },
+            {
+                "var_name": "justAnotheruint32",
+                "var_type": "uint32"
+            }
+        ],
+        "message": "These variables will be auto initialized to their zero value - consider intializing them to the zero value explicitly."
+    },
+    {
+        "analysis_type": "detect_zero_init",
+        "contract_name": "InefficientStructPacking",
+        "auto_initialized_vars": [
+            {
+                "var_name": "person",
+                "var_type": "InefficientStructPacking.Person"
+            }
+        ],
+        "message": "These variables will be auto initialized to their zero value - consider intializing them to the zero value explicitly."
     }
 ]
