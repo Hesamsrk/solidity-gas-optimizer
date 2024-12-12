@@ -14,11 +14,11 @@ def detect_boolean_packing(slither: Slither):
         if len(boolVariables) == 0:
             result["message"] = "No boolean variables - no packing required"
             results.append(result)
-            break
+            continue
         if len(boolVariables) == 1:
             result["message"] = "Only one boolean variable - no packing required"
             results.append(result)
-            break
+            continue
         result["boolean_variables"] = [var.name for var in boolVariables]
         result["message"] = "One uint256 can be used to merge all boolean variables, use this pattern ./templates/booleanPacking.sol"
         results.append(result)

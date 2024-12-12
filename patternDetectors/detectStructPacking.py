@@ -13,7 +13,7 @@ def detect_struct_packing(slither:Slither):
                 if len(structure.elems.items()) == 1:
                      result["message"] = "Only one element - no reorder required"
                      results.append(result)
-                     break
+                     continue
                 for key, value in structure.elems.items():
                     var_type = value.type
                     current_field_order.append({"field_name":key,"field_type":var_type.name,"field_size_bytes":var_type.size//8})

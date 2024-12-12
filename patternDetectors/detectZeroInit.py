@@ -13,7 +13,7 @@ def detect_zero_init(slither: Slither):
         if len(auto_initialized_vars) == 0:
             result["message"] = "No auto initialized vars - no optimization required"
             results.append(result)
-            break
+            continue
        
         result["auto_initialized_vars"] = [{"var_name":var.name,"var_type":str(var.type)} for var in auto_initialized_vars]
         result["message"] = "These variables will be auto initialized to their zero value - consider intializing them to the zero value explicitly."

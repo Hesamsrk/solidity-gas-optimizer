@@ -14,7 +14,7 @@ def detect_uintstar(slither: Slither):
         if len(uintVariables) == 0:
             result["message"] = "No uint* variables - no packing required"
             results.append(result)
-            break
+            continue
         result["uint*_variables"] = [{"var_name":var.name,"var_type":str(var.type)} for var in uintVariables]
         result["message"] = "Instead of all these uint* datatypes, you better use uint256 to help avoid the need for conversion and save gas."
         results.append(result)

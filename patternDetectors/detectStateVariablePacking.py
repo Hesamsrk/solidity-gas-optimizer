@@ -13,7 +13,7 @@ def detect_state_variable_packing(slither: Slither):
         if len(contract.variables) == 1:
             result["message"] = "Only one variable - no reorder required"
             results.append(result)
-            break
+            continue
         for variable in contract.variables:
            current_state_variable_order.append({"variable_name":variable.name,"variable_type":str(variable.type),"variable_size_bytes":variable.type.storage_size[0]})
         result["current_state_variable_order"] = current_state_variable_order

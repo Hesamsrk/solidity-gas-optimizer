@@ -7,6 +7,7 @@ from patternDetectors.detectUintStar import detect_uintstar
 from patternDetectors.detectStringToBytes32 import detect_string_to_bytes32
 from patternDetectors.detectDynamicSizeArrays import detect_dynamic_size_arrays
 from patternDetectors.detectZeroInit import detect_zero_init
+from patternDetectors.detectMemoryStructArguments import detect_memory_struct_arguments
 
 def analyze_contract(file_path):
     """
@@ -26,6 +27,7 @@ def analyze_contract(file_path):
     analysis_results.extend(detect_string_to_bytes32(slither))
     analysis_results.extend(detect_dynamic_size_arrays(slither))
     analysis_results.extend(detect_zero_init(slither))
+    analysis_results.extend(detect_memory_struct_arguments(slither))
 
 
     return analysis_results

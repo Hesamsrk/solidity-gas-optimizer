@@ -104,7 +104,17 @@ contract InefficientStructPacking {
         person.balance = _balance;
     }
 
+    
+
     function getPerson() external view returns (uint256, bool, uint8, uint256) {
         return (person.id, person.isActive, person.age, person.balance);
+    }
+
+    function doSomethingMemory(Person memory person2) public {
+        
+    }
+
+    function doSomethingCalldata(Person calldata person3) public {
+        
     }
 }

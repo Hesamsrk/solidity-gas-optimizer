@@ -13,7 +13,7 @@ def detect_dynamic_size_arrays(slither: Slither):
         if len(dynamic_arrays) == 0:
             result["message"] = "No dynamic arrays - no optimization required"
             results.append(result)
-            break
+            continue
        
         result["dynamic_arrays"] = [{"arr_name":var.name,"arr_type":str(var.type)} for var in dynamic_arrays]
         result["message"] = "Consider using statically sized arrays instead of dynamic arrays for the array variables, if possible - example: uint256[] => uint256[10]"

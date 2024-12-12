@@ -465,5 +465,17 @@
             }
         ],
         "message": "These variables will be auto initialized to their zero value - consider intializing them to the zero value explicitly."
+    },
+    {
+        "analysis_type": "detect_memory_struct_arguments",
+        "contract_name": "InefficientStructPacking",
+        "memory_struct_arguments": [
+            {
+                "function_name": "doSomethingMemory",
+                "parameter_name": "person2",
+                "parameter_type": "InefficientStructPacking.Person"
+            }
+        ],
+        "message": "Struct arguments should use 'calldata' instead of 'memory' for better gas optimization."
     }
 ]
