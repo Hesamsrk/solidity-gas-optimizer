@@ -12,7 +12,6 @@ def detect_memory_struct_arguments(slither: Slither):
         memory_struct_arguments = []
         for f in contract.functions:
             params = [p for p in f.parameters if p.location == "memory" and not p.is_scalar]
-            print(params)
             for p in params:
                 memory_struct_arguments.append({"function_name":f.name,"parameter_name":p.name,"parameter_type":str(p.type)})
         if len(memory_struct_arguments)==0:

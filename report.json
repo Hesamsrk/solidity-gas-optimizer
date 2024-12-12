@@ -139,6 +139,12 @@
     },
     {
         "analysis_type": "detect_state_variable_packing",
+        "contract_name": "Test",
+        "current_state_variable_order": [],
+        "recommended_state_variable_order": []
+    },
+    {
+        "analysis_type": "detect_state_variable_packing",
         "contract_name": "UnoptimizedContract",
         "current_state_variable_order": [
             {
@@ -325,6 +331,11 @@
     },
     {
         "analysis_type": "detect_boolean_packing",
+        "contract_name": "Test",
+        "message": "No boolean variables - no packing required"
+    },
+    {
+        "analysis_type": "detect_boolean_packing",
         "contract_name": "UnoptimizedContract",
         "boolean_variables": [
             "isActive",
@@ -337,6 +348,11 @@
         "analysis_type": "detect_boolean_packing",
         "contract_name": "InefficientStructPacking",
         "message": "No boolean variables - no packing required"
+    },
+    {
+        "analysis_type": "detect_uintstar",
+        "contract_name": "Test",
+        "message": "No uint* variables - no packing required"
     },
     {
         "analysis_type": "detect_uintstar",
@@ -376,6 +392,11 @@
     },
     {
         "analysis_type": "detect_string_to_bytes32",
+        "contract_name": "Test",
+        "message": "No string variables - no conversion required"
+    },
+    {
+        "analysis_type": "detect_string_to_bytes32",
         "contract_name": "UnoptimizedContract",
         "string_variables": [
             {
@@ -402,6 +423,11 @@
     },
     {
         "analysis_type": "detect_dynamic_size_arrays",
+        "contract_name": "Test",
+        "message": "No dynamic arrays - no optimization required"
+    },
+    {
+        "analysis_type": "detect_dynamic_size_arrays",
         "contract_name": "UnoptimizedContract",
         "dynamic_arrays": [
             {
@@ -419,6 +445,11 @@
         "analysis_type": "detect_dynamic_size_arrays",
         "contract_name": "InefficientStructPacking",
         "message": "No dynamic arrays - no optimization required"
+    },
+    {
+        "analysis_type": "detect_zero_init",
+        "contract_name": "Test",
+        "message": "No auto initialized vars - no optimization required"
     },
     {
         "analysis_type": "detect_zero_init",
@@ -477,5 +508,109 @@
             }
         ],
         "message": "Struct arguments should use 'calldata' instead of 'memory' for better gas optimization."
+    },
+    {
+        "analysis_type": "detect_freeable_storage",
+        "contract_name": "Test",
+        "message": "No storage vars - no optimization required"
+    },
+    {
+        "analysis_type": "detect_freeable_storage",
+        "contract_name": "UnoptimizedContract",
+        "storage_variables": [
+            {
+                "var_name": "largeArray",
+                "var_type": "uint256[]",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "balances",
+                "var_type": "mapping(address => uint256)",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "totalBalance",
+                "var_type": "uint256",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "anSmallVariable",
+                "var_type": "uint8",
+                "freeable_storage_bytes": 1
+            },
+            {
+                "var_name": "anotherSmallVariable",
+                "var_type": "uint8",
+                "freeable_storage_bytes": 1
+            },
+            {
+                "var_name": "justAnotheruint16",
+                "var_type": "uint16",
+                "freeable_storage_bytes": 2
+            },
+            {
+                "var_name": "justAnotheruint32",
+                "var_type": "uint32",
+                "freeable_storage_bytes": 4
+            },
+            {
+                "var_name": "isActive",
+                "var_type": "bool",
+                "freeable_storage_bytes": 1
+            },
+            {
+                "var_name": "isConfirmed",
+                "var_type": "bool",
+                "freeable_storage_bytes": 1
+            },
+            {
+                "var_name": "isTransfered",
+                "var_type": "bool",
+                "freeable_storage_bytes": 1
+            },
+            {
+                "var_name": "threshold",
+                "var_type": "uint256",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "contract_address",
+                "var_type": "string",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "owner_name",
+                "var_type": "string",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "fixedArray",
+                "var_type": "uint8[10]",
+                "freeable_storage_bytes": 10
+            },
+            {
+                "var_name": "dynamicArray",
+                "var_type": "uint8[]",
+                "freeable_storage_bytes": 32
+            }
+        ],
+        "message": "Variables in storage can be freed with 'delete' command when not used anymore."
+    },
+    {
+        "analysis_type": "detect_freeable_storage",
+        "contract_name": "InefficientStructPacking",
+        "storage_variables": [
+            {
+                "var_name": "networkVersionUsed",
+                "var_type": "string",
+                "freeable_storage_bytes": 32
+            },
+            {
+                "var_name": "person",
+                "var_type": "InefficientStructPacking.Person",
+                "freeable_storage_bytes": 96
+            }
+        ],
+        "message": "Variables in storage can be freed with 'delete' command when not used anymore."
     }
 ]

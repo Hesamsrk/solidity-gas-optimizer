@@ -1,7 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract UnoptimizedContract {
+contract EmptyContract{
+
+}
+
+contract InefficientContract1 {
     uint256[] public largeArray;
     mapping(address => uint256) public balances;
     uint256 public totalBalance;
@@ -73,7 +77,7 @@ contract UnoptimizedContract {
 }
 
 
-contract InefficientStructPacking {
+contract InefficientContract2 {
 
     string public networkVersionUsed = "1.23.140000v54Beta";
 
